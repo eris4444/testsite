@@ -18,20 +18,33 @@
         <div class="property">
             <img src="https://via.placeholder.com/300x200" alt="ویلا">
             <div class="property-info">
-                <h3>ویلا لوکس</h3>
-                <p>۴ اتاق خواب، ۳ حمام، ۲ پارکینگ</p>
+                <h3 class="property-title" onclick="toggleDetails('property-details-1')">ویلا لوکس</h3>
+                <p class="property-description">۴ اتاق خواب، ۳ حمام، ۲ پارکینگ</p>
+                <div class="property-details" id="property-details-1">
+                    <p>این ویلا دارای فضای سبز وسیع، استخر خصوصی و سیستم امنیتی پیشرفته است. موقعیت عالی برای کسانی که به دنبال زندگی لوکس هستند.</p>
+                </div>
             </div>
         </div>
         <div class="property">
             <img src="https://via.placeholder.com/300x200" alt="آپارتمان">
             <div class="property-info">
-                <h3>آپارتمان مدرن</h3>
-                <p>۲ اتاق خواب، ۲ حمام، ۱ پارکینگ</p>
+                <h3 class="property-title" onclick="toggleDetails('property-details-2')">آپارتمان مدرن</h3>
+                <p class="property-description">۲ اتاق خواب، ۲ حمام، ۱ پارکینگ</p>
+                <div class="property-details" id="property-details-2">
+                    <p>آپارتمان با طراحی مدرن و متریال با کیفیت، مناسب برای زندگی شهری با دسترسی آسان به مراکز خرید و حمل و نقل عمومی.</p>
+                </div>
             </div>
         </div>
     </div>
     <footer>
         <p>&copy; 2025 املاک لاکچری | تمامی حقوق محفوظ است</p>
     </footer>
+
+    <script>
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            details.style.display = (details.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
