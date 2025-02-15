@@ -1,50 +1,101 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>املاک لاکچری</title>
+    <title>Ahura Mine - صفحه اصلی</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header>
-        <h1>املاک لاکچری</h1>
+        <nav class="navbar">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/ahuramine" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">صفحه اصلی</a></li>
+                <li><a href="products.html">محصولات</a></li>
+                <li><a href="about.html">درباره ما</a></li>
+                <li><a href="contact.html">تماس با ما</a></li>
+                <li><a href="cart.html">سبد خرید <span id="cart-icon">0</span></a></li>
+            </ul>
+            <div class="logo">
+                <h1>Ahura Mine</h1>
+            </div>
+        </nav>
     </header>
-    <div class="navbar">
-        <a href="index.html" class="active">خانه</a>
-        <a href="contact.html">درخواست تماس</a>
-    </div>
-    <div class="main-content">
-        <div class="property">
-            <img src="https://via.placeholder.com/300x200" alt="ویلا">
-            <div class="property-info">
-                <h3 class="property-title" onclick="toggleDetails('property-details-1')">ویلا لوکس</h3>
-                <p class="property-description">۴ اتاق خواب، ۳ حمام، ۲ پارکینگ</p>
-                <div class="property-details" id="property-details-1">
-                    <p>این ویلا دارای فضای سبز وسیع، استخر خصوصی و سیستم امنیتی پیشرفته است. موقعیت عالی برای کسانی که به دنبال زندگی لوکس هستند.</p>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>به فروشگاه آهورا ماین خوش آمدید</h2>
+                <p>مرجع تخصصی محصولات ماینکرفت</p>
+                <a href="products.html" class="cta-button">مشاهده محصولات</a>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <h2>محصولات ویژه</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://sjc.microlink.io/IWniyBY3mDKH_RJPNZpnn9NZro7QPbCds_FT6899dRUnFSeHkOQ7Uw_NkSf4JRHbQdkDKLsF1aFVugk70Zkb-Q.jpeg" alt="تصویر محصول">
+                    <h3>اکانت ماینکرفت اورجینال</h3>
+                    <p>دسترسی کامل به تمام سرورها و امکانات</p>
+                    <a href="product-detail.html" class="product-button">اطلاعات بیشتر</a>
+                </div>
+                <!-- Add more product cards as needed -->
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>چرا آهورا ماین؟</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>تضمین اصالت</h3>
+                        <p>تمامی اکانت‌ها اورجینال و دارای گارانتی هستند</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-headset"></i>
+                        <h3>پشتیبانی ۲۴/۷</h3>
+                        <p>پشتیبانی آنلاین در تمام ساعات شبانه‌روز</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-wallet"></i>
+                        <h3>قیمت مناسب</h3>
+                        <p>بهترین قیمت‌ها در بازار ایران</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="property">
-            <img src="https://via.placeholder.com/300x200" alt="آپارتمان">
-            <div class="property-info">
-                <h3 class="property-title" onclick="toggleDetails('property-details-2')">آپارتمان مدرن</h3>
-                <p class="property-description">۲ اتاق خواب، ۲ حمام، ۱ پارکینگ</p>
-                <div class="property-details" id="property-details-2">
-                    <p>آپارتمان با طراحی مدرن و متریال با کیفیت، مناسب برای زندگی شهری با دسترسی آسان به مراکز خرید و حمل و نقل عمومی.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2025 املاک لاکچری | تمامی حقوق محفوظ است</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>تماس با ما</h3>
+                <p>ایمیل: info@ahuramine.com</p>
+                <p>ما را در اینستاگرام دنبال کنید</p>
+            </div>
+            <div class="footer-section">
+                <h3>لینک‌های سریع</h3>
+                <ul>
+                    <li><a href="products.html">محصولات</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; ۱۴۰۳ آهورا ماین. تمامی حقوق محفوظ است.</p>
+        </div>
     </footer>
 
-    <script>
-        function toggleDetails(id) {
-            var details = document.getElementById(id);
-            details.style.display = (details.style.display === 'block') ? 'none' : 'block';
-        }
-    </script>
+    <script src="cart.js"></script>
 </body>
 </html>
