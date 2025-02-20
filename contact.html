@@ -1,136 +1,39 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تماس با ما - دبیرستان نمونه</title>
+    <title>ارتباط با ما</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- نوار ناوبری -->
-    <nav class="navbar">
-        <!-- محتوای ناوبری مشابه صفحات دیگر -->
-    </nav>
+    <header>
+        <h1>ارتباط با ما</h1>
+        <nav>
+            <a href="index.html">🏠 صفحه اصلی</a>
+            <a href="about.html">📌 درباره ما</a>
+            <a href="gallery.html">📷 گالری</a>
+        </nav>
+    </header>
 
-    <!-- هدر صفحه -->
-    <div class="page-header">
-        <div class="container">
-            <h1>تماس با ما</h1>
-            <div class="breadcrumb">
-                <a href="index.html">صفحه اصلی</a>
-                <i class="fas fa-chevron-left"></i>
-                <span>تماس با ما</span>
-            </div>
-        </div>
-    </div>
+    <main>
+        <h2 style="color: red;">⚠ لطفاً فیلترشکن خود را روشن کنید ⚠</h2>
 
-    <!-- بخش اصلی -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-content">
-                <!-- اطلاعات تماس -->
-                <div class="contact-info">
-                    <h2>راه‌های ارتباطی</h2>
-                    <div class="info-items">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h3>آدرس</h3>
-                                <p>تهران، خیابان...</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h3>تلفن تماس</h3>
-                                <p>۰۲۱-۱۲۳۴۵۶۷۸</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h3>ایمیل</h3>
-                                <p>info@school.com</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h3>ساعات کاری</h3>
-                                <p>شنبه تا چهارشنبه: ۷:۳۰ الی ۱۴:۳۰</p>
-                            </div>
-                        </div>
-                    </div>
+        <form id="contactForm">
+            <label>نام کامل:</label>
+            <input type="text" id="fullName" required>
 
-                    <!-- شبکه‌های اجتماعی -->
-                    <div class="social-contact">
-                        <h3>ما را در شبکه‌های اجتماعی دنبال کنید</h3>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-telegram"></i></a>
-                            <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-                    
-                    <!-- نقشه -->
-                    <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
+            <label>شماره تماس:</label>
+            <input type="text" id="phoneNumber" required>
 
-                <!-- فرم تماس -->
-                <div class="contact-form">
-                    <h2>ارسال پیام</h2>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">نام و نام خانوادگی</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">ایمیل</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">شماره تماس</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">موضوع</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">پیام</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">ارسال پیام</button>
-                    </form>
-                </div>
-            </div>
+            <label>پیام شما:</label>
+            <textarea id="messageText" required></textarea>
 
-            <!-- سوالات متداول -->
-            <div class="faq-section">
-                <h2>سوالات متداول</h2>
-                <div class="faq-items">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>ساعت کار مدرسه چگونه است؟</h3>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>مدرسه از شنبه تا چهارشنبه از ساعت ۷:۳۰ الی ۱۴:۳۰ فعال است.</p>
-                        </div>
-                    </div>
-                    <!-- سوالات بیشتر -->
-                </div>
-            </div>
-        </div>
-    </section>
+            <button type="submit">ارسال پیام</button>
+        </form>
 
-    <!-- فوتر -->
-    <footer class="footer">
-        <!-- محتوای فوتر مشابه صفحات دیگر -->
-    </footer>
+        <p id="responseMessage"></p>
+    </main>
 
     <script src="script.js"></script>
 </body>
