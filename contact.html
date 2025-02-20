@@ -3,70 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فروشگاه ویرا استور - تماس با ما</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>تماس با ما - دبیرستان نمونه</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/viraastore.ir" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">صفحه اصلی</a></li>
-                <li><a href="products.html">محصولات</a></li>
-                <li><a href="about.html">درباره ما</a></li>
-                <li><a href="contact.html" class="active">تماس با ما</a></li>
-            </ul>
-            <div class="logo">
-                <h1>ویرا استور</h1>
-            </div>
-        </nav>
-    </header>
+    <!-- نوار ناوبری -->
+    <nav class="navbar">
+        <!-- محتوای ناوبری مشابه صفحات دیگر -->
+    </nav>
 
-    <main>
-        <section class="page-content">
-            <h2>تماس با ما</h2>
-            <p>برای ارتباط با ما می‌توانید از طریق فرم زیر اقدام کنید یا با استفاده از اطلاعات تماس، مستقیماً با ما در ارتباط باشید.</p>
-            <form class="contact-form">
-                <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
-                <input type="email" name="email" placeholder="آدرس ایمیل" required>
-                <input type="tel" name="phone" placeholder="شماره تماس">
-                <textarea name="message" placeholder="پیام شما" rows="5" required></textarea>
-                <button type="submit" class="cta-button">ارسال پیام</button>
-            </form>
-            <div class="contact-info">
-                <h3>اطلاعات تماس</h3>
-                <p>آدرس: تهران، خیابان ولیعصر، پلاک ۱۲۳</p>
-                <p>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</p>
-                <p>ایمیل: viraastore@gmail.com</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>تماس با ما</h3>
-                <p>ایمیل: viraastore@gmail.com</p>
-                <p>ما را در اینستاگرام دنبال کنید</p>
-            </div>
-            <div class="footer-section">
-                <h3>لینک‌های سریع</h3>
-                <ul>
-                    <li><a href="products.html">محصولات</a></li>
-                    <li><a href="about.html">درباره ما</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
+    <!-- هدر صفحه -->
+    <div class="page-header">
+        <div class="container">
+            <h1>تماس با ما</h1>
+            <div class="breadcrumb">
+                <a href="index.html">صفحه اصلی</a>
+                <i class="fas fa-chevron-left"></i>
+                <span>تماس با ما</span>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; ۱۴۰۳ فروشگاه ویرا استور . تمامی حقوق محفوظ است.</p>
+    </div>
+
+    <!-- بخش اصلی -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- اطلاعات تماس -->
+                <div class="contact-info">
+                    <h2>راه‌های ارتباطی</h2>
+                    <div class="info-items">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>آدرس</h3>
+                                <p>تهران، خیابان...</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>تلفن تماس</h3>
+                                <p>۰۲۱-۱۲۳۴۵۶۷۸</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>ایمیل</h3>
+                                <p>info@school.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>ساعات کاری</h3>
+                                <p>شنبه تا چهارشنبه: ۷:۳۰ الی ۱۴:۳۰</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- شبکه‌های اجتماعی -->
+                    <div class="social-contact">
+                        <h3>ما را در شبکه‌های اجتماعی دنبال کنید</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- نقشه -->
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- فرم تماس -->
+                <div class="contact-form">
+                    <h2>ارسال پیام</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">نام و نام خانوادگی</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">ایمیل</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">شماره تماس</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">موضوع</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">پیام</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">ارسال پیام</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- سوالات متداول -->
+            <div class="faq-section">
+                <h2>سوالات متداول</h2>
+                <div class="faq-items">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>ساعت کار مدرسه چگونه است؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>مدرسه از شنبه تا چهارشنبه از ساعت ۷:۳۰ الی ۱۴:۳۰ فعال است.</p>
+                        </div>
+                    </div>
+                    <!-- سوالات بیشتر -->
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer class="footer">
+        <!-- محتوای فوتر مشابه صفحات دیگر -->
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
