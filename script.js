@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
     });
 
-    // ذخیره‌سازی تم انتخاب‌شده
     if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark-mode");
     }
@@ -66,4 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // 🍔 منوی واکنش‌گرا در موبایل
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav");
+
+    menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("menu-active");
+    });
 });
