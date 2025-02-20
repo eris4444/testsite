@@ -13,26 +13,29 @@
             <a href="index.html">🏠 صفحه اصلی</a>
             <a href="about.html">📌 درباره ما</a>
             <a href="gallery.html">📷 گالری</a>
+            <a href="contact.html">📞 ارتباط با ما</a>
         </nav>
+        <button id="theme-toggle">🌙 تغییر تم</button>
     </header>
 
     <main>
-        <h2 style="color: red;">⚠ لطفاً فیلترشکن خود را روشن کنید ⚠</h2>
+        <section class="contact-form">
+            <h2>با ما تماس بگیرید</h2>
+            <form action="https://api.telegram.org/bot6554434146:AAHNahL_2YGrlzmm-vvVwVikgf5mpheQoMk/sendMessage" method="POST">
+                <input type="hidden" name="chat_id" value="5619969053">
+                <label for="name">نام کامل شما:</label>
+                <input type="text" id="name" name="name" required>
 
-        <form id="contactForm">
-            <label>نام کامل:</label>
-            <input type="text" id="fullName" required>
+                <label for="phone">شماره تماس:</label>
+                <input type="text" id="phone" name="phone" required>
 
-            <label>شماره تماس:</label>
-            <input type="text" id="phoneNumber" required>
+                <label for="message">متن پیام:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
 
-            <label>پیام شما:</label>
-            <textarea id="messageText" required></textarea>
-
-            <button type="submit">ارسال پیام</button>
-        </form>
-
-        <p id="responseMessage"></p>
+                <button type="submit">ارسال پیام</button>
+            </form>
+            <p>لطفاً فیلترشکن خود را روشن کنید.</p>
+        </section>
     </main>
 
     <script src="script.js"></script>
