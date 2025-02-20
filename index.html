@@ -1,236 +1,40 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دبیرستان نمونه - صفحه اصلی</title>
+    <title>اخبار خنده‌دار دبیرستان</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- نوار ناوبری -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="/placeholder.svg?height=50&width=50" alt="لوگوی مدرسه">
-                <span>دبیرستان نمونه</span>
-            </div>
-            <div class="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">صفحه اصلی</a></li>
-                <li><a href="news.html">آرشیو اخبار</a></li>
-                <li><a href="events.html">رویدادها</a></li>
-                <li><a href="gallery.html">گالری تصاویر</a></li>
-                <li><a href="about.html">درباره ما</a></li>
-                <li><a href="contact.html">تماس با ما</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <h1>اخبار خنده‌دار دبیرستان</h1>
+        <nav>
+            <a href="index.html">🏠 صفحه اصلی</a>
+            <a href="about.html">📌 درباره ما</a>
+            <a href="gallery.html">📷 گالری</a>
+            <a href="contact.html">📞 ارتباط با ما</a>
+        </nav>
+        <button id="theme-toggle">🌙 تغییر تم</button>
+    </header>
 
-    <!-- اسلایدر اخبار مهم -->
-    <section class="hero-slider">
-        <div class="container">
-            <div class="slider">
-                <div class="slide active">
-                    <img src="/placeholder.svg?height=400&width=800" alt="خبر مهم">
-                    <div class="slide-content">
-                        <span class="category">آموزشی</span>
-                        <h2>کسب رتبه برتر در المپیاد علمی</h2>
-                        <p>دانش‌آموزان مدرسه ما موفق به کسب رتبه برتر در المپیاد علمی کشور شدند.</p>
-                        <a href="#" class="btn">ادامه مطلب</a>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="/placeholder.svg?height=400&width=800" alt="خبر مهم">
-                    <div class="slide-content">
-                        <span class="category">فرهنگی</span>
-                        <h2>برگزاری جشنواره فرهنگی هنری</h2>
-                        <p>جشنواره فرهنگی هنری با حضور دانش‌آموزان و اولیا برگزار شد.</p>
-                        <a href="#" class="btn">ادامه مطلب</a>
-                    </div>
+    <main>
+        <div class="news-container">
+            <div class="news-item">
+                <div class="news-title">📢 زنگ تفریح حذف شد! 😱</div>
+                <div class="news-content">
+                    <p>مدیر اعلام کرد که زنگ تفریح حذف شده و دانش‌آموزان در اعتراض خوابیدن را انتخاب کردند! 😴</p>
                 </div>
             </div>
-            <div class="slider-nav">
-                <button class="prev"><i class="fas fa-chevron-right"></i></button>
-                <button class="next"><i class="fas fa-chevron-left"></i></button>
-            </div>
-        </div>
-    </section>
 
-    <!-- آخرین اخبار -->
-    <section class="latest-news">
-        <div class="container">
-            <div class="section-header">
-                <h2>آخرین اخبار</h2>
-                <a href="news.html" class="view-all">مشاهده همه اخبار</a>
-            </div>
-            <div class="news-grid">
-                <!-- خبر ۱ -->
-                <article class="news-card">
-                    <div class="news-image">
-                        <img src="/placeholder.svg?height=200&width=300" alt="تصویر خبر">
-                        <span class="category">آموزشی</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta" data-date="2024-03-10">
-                            <span><i class="far fa-calendar"></i> ۲۰ اسفند ۱۴۰۲</span>
-                            <span><i class="far fa-eye"></i> ۱۲۳ بازدید</span>
-                        </div>
-                        <h3>برگزاری جشنواره علمی دانش‌آموزی</h3>
-                        <div class="news-text" data-full-content="جشنواره علمی دانش‌آموزی با حضور بیش از ۲۰۰ دانش‌آموز برگزار شد. در این جشنواره، دانش‌آموزان پروژه‌های علمی خود را در زمینه‌های مختلف از جمله فیزیک، شیمی و زیست‌شناسی ارائه کردند. این رویداد با استقبال گسترده دانش‌آموزان و اولیا مواجه شد و نتایج درخشانی به همراه داشت. برگزیدگان این جشنواره به مسابقات استانی راه یافتند.">
-                            جشنواره علمی دانش‌آموزی با حضور بیش از ۲۰۰ دانش‌آموز برگزار شد. در این جشنواره، دانش‌آموزان پروژه‌های علمی خود را ارائه کردند...
-                        </div>
-                        <a class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </article>
-
-                <!-- خبر ۲ -->
-                <article class="news-card">
-                    <div class="news-image">
-                        <img src="/placeholder.svg?height=200&width=300" alt="تصویر خبر">
-                        <span class="category">ورزشی</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta" data-date="2024-03-09">
-                            <span><i class="far fa-calendar"></i> ۱۹ اسفند ۱۴۰۲</span>
-                            <span><i class="far fa-eye"></i> ۹۸ بازدید</span>
-                        </div>
-                        <h3>قهرمانی تیم فوتسال در مسابقات استانی</h3>
-                        <div class="news-text" data-full-content="تیم فوتسال مدرسه در یک رقابت نفس‌گیر موفق به کسب مقام قهرمانی در مسابقات استانی شد. این تیم با آمادگی کامل و تمرینات منظم توانست تمام حریفان خود را شکست دهد و جام قهرمانی را به مدرسه بیاورد. این موفقیت حاصل تلاش دانش‌آموزان و مربیان تیم بود.">
-                            تیم فوتسال مدرسه در یک رقابت نفس‌گیر موفق به کسب مقام قهرمانی در مسابقات استانی شد...
-                        </div>
-                        <a class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </article>
-
-                <!-- خبر ۳ -->
-                <article class="news-card">
-                    <div class="news-image">
-                        <img src="/placeholder.svg?height=200&width=300" alt="تصویر خبر">
-                        <span class="category">فرهنگی</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta" data-date="2024-03-08">
-                            <span><i class="far fa-calendar"></i> ۱۸ اسفند ۱۴۰۲</span>
-                            <span><i class="far fa-eye"></i> ۱۵۶ بازدید</span>
-                        </div>
-                        <h3>برگزاری نمایشگاه کتاب</h3>
-                        <div class="news-text" data-full-content="نمایشگاه کتاب مدرسه با حضور نویسندگان برجسته برگزار شد. در این نمایشگاه، کتاب‌های متنوعی در زمینه‌های مختلف علمی، ادبی و هنری عرضه شد. دانش‌آموزان با شور و اشتیاق از این نمایشگاه بازدید کردند و از تخفیف‌های ویژه بهره‌مند شدند.">
-                            نمایشگاه کتاب مدرسه با حضور نویسندگان برجسته برگزار شد. در این نمایشگاه، کتاب‌های متنوعی عرضه شد...
-                        </div>
-                        <a class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- رویدادهای آینده -->
-    <section class="upcoming-events">
-        <div class="container">
-            <div class="section-header">
-                <h2>رویدادهای پیش رو</h2>
-                <a href="events.html" class="view-all">مشاهده همه رویدادها</a>
-            </div>
-            <div class="events-grid">
-                <!-- رویداد ۱ -->
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="day">۲۰</span>
-                        <span class="month">اسفند</span>
-                    </div>
-                    <div class="event-details">
-                        <h3>جشن پایان سال تحصیلی</h3>
-                        <p><i class="fas fa-clock"></i> ساعت ۱۰:۰۰</p>
-                        <p><i class="fas fa-map-marker-alt"></i> سالن اجتماعات</p>
-                        <p class="event-desc">جشن پایان سال تحصیلی با حضور دانش‌آموزان و اولیا برگزار می‌شود.</p>
-                    </div>
-                </div>
-
-                <!-- رویداد ۲ -->
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="day">۲۵</span>
-                        <span class="month">اسفند</span>
-                    </div>
-                    <div class="event-details">
-                        <h3>بازدید علمی</h3>
-                        <p><i class="fas fa-clock"></i> ساعت ۸:۰۰</p>
-                        <p><i class="fas fa-map-marker-alt"></i> موزه علوم</p>
-                        <p class="event-desc">بازدید علمی از موزه علوم برای دانش‌آموزان پایه دهم.</p>
-                    </div>
+            <div class="news-item">
+                <div class="news-title">📝 امتحان ناگهانی ریاضی 😭</div>
+                <div class="news-content">
+                    <p>دبیر ریاضی امتحان گرفت و همه را سورپرایز کرد! بچه‌ها معتقدند این یک توطئه جهانی است! 🧐</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- دستاوردها -->
-    <section class="achievements">
-        <div class="container">
-            <div class="achievements-grid">
-                <div class="achievement-item">
-                    <i class="fas fa-user-graduate"></i>
-                    <h3>۵۰۰+</h3>
-                    <p>دانش‌آموز</p>
-                </div>
-                <div class="achievement-item">
-                    <i class="fas fa-trophy"></i>
-                    <h3>۵۰+</h3>
-                    <p>افتخارات کشوری</p>
-                </div>
-                <div class="achievement-item">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>۴۰+</h3>
-                    <p>معلم مجرب</p>
-                </div>
-                <div class="achievement-item">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>۹۵٪</h3>
-                    <p>قبولی در دانشگاه</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- فوتر -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>درباره ما</h3>
-                    <p>دبیرستان نمونه با بیش از ۲۰ سال سابقه در ارائه خدمات آموزشی با کیفیت، همواره در تلاش برای پرورش استعدادهای درخشان است.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>دسترسی سریع</h3>
-                    <ul>
-                        <li><a href="news.html">اخبار و اطلاعیه‌ها</a></li>
-                        <li><a href="events.html">تقویم رویدادها</a></li>
-                        <li><a href="gallery.html">گالری تصاویر</a></li>
-                        <li><a href="about.html">درباره ما</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>ارتباط با ما</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> تهران، خیابان...</p>
-                    <p><i class="fas fa-phone"></i> ۰۲۱-۱۲۳۴۵۶۷۸</p>
-                    <p><i class="fas fa-envelope"></i> info@school.com</p>
-                </div>
-                <div class="footer-section">
-                    <h3>شبکه‌های اجتماعی</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; ۱۴۰۲ دبیرستان نمونه - تمامی حقوق محفوظ است.</p>
-            </div>
-        </div>
-    </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
