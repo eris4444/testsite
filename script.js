@@ -43,11 +43,6 @@ function displayNews(newsArray) {
 
     newsGrid.innerHTML = newsArray.map(news => `
         <article class="news-item" data-id="${news.id}">
-            ${news.image ? `
-                <div class="news-image">
-                    <img src="images/${news.image}" alt="${news.title}" loading="lazy">
-                </div>
-            ` : ''}
             <div class="news-date">${formatDate(news.date)}</div>
             <h2>${news.title}</h2>
             <div class="news-content">
