@@ -1,4 +1,4 @@
-// Theme Toggle
+// Theme Toggle (کد قبلی)
 const themeToggle = document.getElementById('theme-toggle');
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -7,26 +7,69 @@ function setTheme(isDark) {
     themeToggle.textContent = isDark ? '🌞' : '🌒';
 }
 
-// Initialize theme
 setTheme(prefersDarkScheme.matches);
-
-// Listen for system theme changes
 prefersDarkScheme.addListener((e) => setTheme(e.matches));
-
-// Theme toggle button
 themeToggle.addEventListener('click', () => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     setTheme(!isDark);
 });
 
-// Expandable news items
-document.querySelectorAll('.news-item').forEach(item => {
-    item.addEventListener('click', () => {
-        item.classList.toggle('expanded');
-    });
-});
+// News Management
+async function loadNews() {
+    try {
+        const response = await fetch('news.json');
+        const data = await response.json();
+        displayNews(data.news);
+    } catch (error) {
+        console.error('Error loading news:', error);
+        document.querySelector('.news-grid').innerHTML = '<p class="error-message">خطا در بارگذاری اخبار</p>';
+    }
+}
 
-// Contact form submission
+function formatDate(dateStr) {
+    const parts = dateStr.split('/');
+    const months = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
+    return `${parts[2]} ${months[parseInt(parts[1]) - 1]} ${parts[0]}`;
+}
+
+function displayNews(newsArray) {
+    const newsGrid = document.querySelector('.news-grid');
+    if (!newsGrid) return;
+
+    newsGrid.innerHTML = newsArray.map(news => `
+        <article class="news-item" data-id="${news.id}">
+            ${news.image ? `
+                <div class="news-image">
+                    <img src="images/${news.image}" alt="${news.title}" loading="lazy">
+                </div>
+            ` : ''}
+            <div class="news-date">${formatDate(news.date)}</div>
+            <h2>${news.title}</h2>
+            <div class="news-content">
+                <p class="news-summary">${news.summary}</p>
+                <div class="news-full-content">${news.content}</div>
+            </div>
+            <button class="read-more">ادامه مطلب</button>
+        </article>
+    `).join('');
+
+    // Add click handlers for news items
+    document.querySelectorAll('.news-item').forEach(item => {
+        const readMoreBtn = item.querySelector('.read-more');
+        readMoreBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            item.classList.toggle('expanded');
+            readMoreBtn.textContent = item.classList.contains('expanded') ? 'بستن' : 'ادامه مطلب';
+        });
+    });
+}
+
+// Load news if we're on the main page
+if (document.querySelector('.news-grid')) {
+    loadNews();
+}
+
+// Contact form submission (کد قبلی)
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
