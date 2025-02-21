@@ -1,63 +1,161 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه پیدا نشد</title>
+    <title>صفحه مورد نظر یافت نشد - اخبار مدرسه</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Tahoma, Arial, sans-serif;
-        }
-
-        body {
-            background-color: #1a1a2e;
-            color: #e94560;
+        .error-container {
+            min-height: 70vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            height: 100vh;
+            align-items: center;
             text-align: center;
-            direction: rtl;
+            padding: 2rem;
         }
 
-        .container {
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 1rem;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .error-code::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 10px;
+            background: var(--primary-color);
+            filter: blur(10px);
+            opacity: 0.3;
+            animation: shadow 6s ease-in-out infinite;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+
+        .error-description {
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 2rem;
             max-width: 600px;
         }
 
-        h1 {
-            font-size: 6rem;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        a {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1.2rem;
+        .back-button {
+            background-color: var(--primary-color);
             color: white;
-            background-color: #0f3460;
             text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
         }
 
-        a:hover {
-            background-color: #16213e;
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+
+        .school-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes shadow {
+            0%, 100% {
+                opacity: 0.3;
+                width: 80%;
+            }
+            50% {
+                opacity: 0.2;
+                width: 60%;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* تنظیمات ریسپانسیو */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-message {
+                font-size: 1.25rem;
+            }
+            
+            .error-description {
+                font-size: 0.9rem;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>۴۰۴</h1>
-        <p>صفحه‌ای که به دنبال آن هستید یافت نشد!</p>
-        <a href="https://erisrtg.ir">بازگشت به صفحه اصلی</a>
+    <div class="vpn-warning">
+        ⚠️ لطفا از فعال بودن فیلترشکن خود اطمینان حاصل کنید
     </div>
+
+    <nav>
+        <div class="container">
+            <h1>اخبار مدرسه</h1>
+            <div class="nav-links">
+                <a href="index.html">صفحه اصلی</a>
+                <a href="contact.html">تماس با ما</a>
+                <button id="theme-toggle">🌓</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="error-container">
+            <div class="school-icon">🏫</div>
+            <div class="error-code">404</div>
+            <h2 class="error-message">صفحه مورد نظر پیدا نشد!</h2>
+            <p class="error-description">
+                متأسفانه صفحه‌ای که به دنبال آن هستید در سایت ما وجود ندارد. 
+                ممکن است این صفحه حذف شده، تغییر نام داده یا به طور موقت در دسترس نباشد.
+            </p>
+            <a href="index.html" class="back-button">بازگشت به صفحه اصلی</a>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
