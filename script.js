@@ -1,4 +1,4 @@
-// Theme Toggle (کد قبلی)
+// Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -7,8 +7,13 @@ function setTheme(isDark) {
     themeToggle.textContent = isDark ? '🌞' : '🌒';
 }
 
+// Initialize theme
 setTheme(prefersDarkScheme.matches);
+
+// Listen for system theme changes
 prefersDarkScheme.addListener((e) => setTheme(e.matches));
+
+// Theme toggle button
 themeToggle.addEventListener('click', () => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     setTheme(!isDark);
@@ -69,7 +74,7 @@ if (document.querySelector('.news-grid')) {
     loadNews();
 }
 
-// Contact form submission (کد قبلی)
+// Contact form submission
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
