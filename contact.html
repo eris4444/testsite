@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ارتباط با ما</title>
+    <title>تماس با ما - اخبار مدرسه</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>ارتباط با ما</h1>
-        <nav>
-            <a href="index.html">🏠 صفحه اصلی</a>
-            <a href="about.html">📌 درباره ما</a>
-            <a href="gallery.html">📷 گالری</a>
-            <a href="contact.html">📞 ارتباط با ما</a>
-        </nav>
-        <button id="theme-toggle">🌙 تغییر تم</button>
-    </header>
+    <div class="vpn-warning">
+        ⚠️ لطفا از فعال بودن فیلترشکن خود اطمینان حاصل کنید
+    </div>
 
-    <main>
-        <section class="contact-form">
-            <h2>با ما تماس بگیرید</h2>
-            <form action="https://api.telegram.org/bot6554434146:AAHNahL_2YGrlzmm-vvVwVikgf5mpheQoMk/sendMessage" method="POST">
-                <input type="hidden" name="chat_id" value="5619969053">
-                <label for="name">نام کامل شما:</label>
+    <nav>
+        <div class="container">
+            <h1>اخبار مدرسه</h1>
+            <div class="nav-links">
+                <a href="index.html">صفحه اصلی</a>
+                <a href="contact.html" class="active">تماس با ما</a>
+                <button id="theme-toggle">🌓</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <form id="contact-form" class="contact-form">
+            <div class="form-group">
+                <label for="name">نام و نام خانوادگی:</label>
                 <input type="text" id="name" name="name" required>
-
+            </div>
+            <div class="form-group">
                 <label for="phone">شماره تماس:</label>
-                <input type="text" id="phone" name="phone" required>
-
-                <label for="message">متن پیام:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">ارسال پیام</button>
-            </form>
-            <p>لطفاً فیلترشکن خود را روشن کنید.</p>
-        </section>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="message">پیام:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">ارسال پیام</button>
+        </form>
     </main>
 
     <script src="script.js"></script>
