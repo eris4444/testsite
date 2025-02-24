@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کصشرای مدرسه</title>
+    <title>صفحه اصلی</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+        // چک کردن لاگین قبل از نمایش صفحه
+        if(localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
     
     <nav>
         <div class="container">
@@ -15,6 +21,7 @@
                 <a href="index.html" class="active">صفحه اصلی</a>
                 <a href="contact.html">تماس با ما</a>
                 <button id="theme-toggle">🌓</button>
+                <button onclick="logout()" class="logout-btn">خروج</button>
             </div>
         </div>
     </nav>
@@ -25,6 +32,13 @@
         </div>
     </main>
 
+    <script>
+        // تابع خروج
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
