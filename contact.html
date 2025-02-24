@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تماس با ما - اخبار مدرسه</title>
+    <title>تماس با ما</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+        // چک کردن لاگین قبل از نمایش صفحه
+        if(localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+
     <div class="vpn-warning">
         ⚠️ لطفا از فعال بودن فیلترشکن خود اطمینان حاصل کنید
     </div>
@@ -18,6 +25,7 @@
                 <a href="index.html">صفحه اصلی</a>
                 <a href="contact.html" class="active">تماس با ما</a>
                 <button id="theme-toggle">🌓</button>
+                <button onclick="logout()" class="logout-btn">خروج</button>
             </div>
         </div>
     </nav>
@@ -40,6 +48,13 @@
         </form>
     </main>
 
+    <script>
+        // تابع خروج
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
