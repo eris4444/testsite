@@ -84,12 +84,25 @@
             font-size: 0.9rem;
             display: none;
         }
+
+        .version-mismatch {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h1>ورود به سایت</h1>
         <p>لطفا رمز عبور را وارد کنید</p>
+        <div class="version-mismatch" id="versionMismatch">
+            رمز عبور سایت تغییر کرده است. لطفاً دوباره وارد شوید.
+        </div>
         <form id="loginForm" onsubmit="return checkPassword(event)">
             <div class="form-group">
                 <input 
@@ -107,10 +120,22 @@
     <script>
         // تنظیمات رمز عبور - هر بار که رمز را تغییر می‌دهید، نسخه را هم افزایش دهید
         const SITE_PASSWORD = "1234"; // رمز عبور را اینجا تغییر دهید
-        const PASSWORD_VERSION = "3"; // نسخه رمز را اینجا افزایش دهید (هر بار که رمز را تغییر می‌دهید)
+        const PASSWORD_VERSION = "1"; // نسخه رمز را اینجا افزایش دهید (هر بار که رمز را تغییر می‌دهید)
         
         // چک کردن لاگین در هنگام لود صفحه
         window.onload = function() {
+            // پاک کردن پارامترهای URL برای جلوگیری از حلقه ریدایرکت
+            if (window.location.search.includes('expired=true')) {
+                document.getElementById('versionMismatch').style.display = 'block';
+                // پاک کردن پارامتر از URL بدون ریلود صفحه
+                window.history.replaceState({}, document.title, window.location.pathname);
+                
+                // پاک کردن وضعیت لاگین قدیمی
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userPasswordVersion');
+                return;
+            }
+            
             const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
             const userPasswordVersion = localStorage.getItem('userPasswordVersion');
             
