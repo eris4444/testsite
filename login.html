@@ -105,9 +105,16 @@
     </div>
 
     <script>
+        // تنظیمات رمز عبور - هر بار که رمز را تغییر می‌دهید، نسخه را هم افزایش دهید
+        const SITE_PASSWORD = "1234"; // رمز عبور را اینجا تغییر دهید
+        const PASSWORD_VERSION = "1"; // نسخه رمز را اینجا افزایش دهید (هر بار که رمز را تغییر می‌دهید)
+        
         // چک کردن لاگین در هنگام لود صفحه
         window.onload = function() {
-            if(localStorage.getItem('isLoggedIn') === 'true') {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const userPasswordVersion = localStorage.getItem('userPasswordVersion');
+            
+            if (isLoggedIn && userPasswordVersion === PASSWORD_VERSION) {
                 window.location.href = 'index.html';
             }
         }
@@ -119,8 +126,9 @@
             const password = document.getElementById('password').value;
             const error = document.getElementById('error');
             
-            if(password === 'g925') {
+            if (password === SITE_PASSWORD) {
                 localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userPasswordVersion', PASSWORD_VERSION);
                 window.location.href = 'index.html';
             } else {
                 error.style.display = 'block';
