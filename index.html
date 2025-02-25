@@ -8,8 +8,14 @@
 </head>
 <body>
     <script>
-        // چک کردن لاگین قبل از نمایش صفحه
-        if(localStorage.getItem('isLoggedIn') !== 'true') {
+        // تنظیمات رمز عبور - باید با مقادیر در login.html یکسان باشد
+        const PASSWORD_VERSION = "2"; // نسخه رمز - باید با مقدار در login.html یکسان باشد
+        
+        // چک کردن لاگین و نسخه رمز قبل از نمایش صفحه
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const userPasswordVersion = localStorage.getItem('userPasswordVersion');
+        
+        if (!isLoggedIn || userPasswordVersion !== PASSWORD_VERSION) {
             window.location.href = 'login.html';
         }
     </script>
@@ -36,6 +42,7 @@
         // تابع خروج
         function logout() {
             localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userPasswordVersion');
             window.location.href = 'login.html';
         }
     </script>
