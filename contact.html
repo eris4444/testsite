@@ -9,14 +9,19 @@
 <body>
     <script>
         // تنظیمات رمز عبور - باید با مقادیر در login.html یکسان باشد
-        const PASSWORD_VERSION = "3"; // نسخه رمز - باید با مقدار در login.html یکسان باشد
+        const PASSWORD_VERSION = "1"; // نسخه رمز - باید با مقدار در login.html یکسان باشد
         
         // چک کردن لاگین و نسخه رمز قبل از نمایش صفحه
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         const userPasswordVersion = localStorage.getItem('userPasswordVersion');
         
         if (!isLoggedIn || userPasswordVersion !== PASSWORD_VERSION) {
-            window.location.href = 'login.html';
+            // ریدایرکت به صفحه لاگین با پارامتر expired اگر نسخه رمز تغییر کرده باشد
+            if (isLoggedIn && userPasswordVersion !== PASSWORD_VERSION) {
+                window.location.href = 'login.html?expired=true';
+            } else {
+                window.location.href = 'login.html';
+            }
         }
     </script>
 
