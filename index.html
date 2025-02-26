@@ -3,54 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه اصلی</title>
-    <link rel="stylesheet" href="style.css">
+    <title>پوست زیبا | فروشگاه محصولات مراقبت پوستی</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
-    <script>
-        // تنظیمات رمز عبور - باید با مقادیر در login.html یکسان باشد
-        const PASSWORD_VERSION = "2"; // نسخه رمز - باید با مقدار در login.html یکسان باشد
-        
-        // چک کردن لاگین و نسخه رمز قبل از نمایش صفحه
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        const userPasswordVersion = localStorage.getItem('userPasswordVersion');
-        
-        if (!isLoggedIn || userPasswordVersion !== PASSWORD_VERSION) {
-            // ریدایرکت به صفحه لاگین با پارامتر expired اگر نسخه رمز تغییر کرده باشد
-            if (isLoggedIn && userPasswordVersion !== PASSWORD_VERSION) {
-                window.location.href = 'login.html?expired=true';
-            } else {
-                window.location.href = 'login.html';
-            }
-        }
-    </script>
-    
-    <nav>
+    <header class="header">
         <div class="container">
-            <h1>کصیشر</h1>
-            <div class="nav-links">
-                <a href="index.html" class="active">صفحه اصلی</a>
-                <a href="contact.html">تماس با ما</a>
-                <button id="theme-toggle">🌓</button>
-                <button onclick="logout()" class="logout-btn">خروج</button>
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>پوست زیبا</h1>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">خانه</a></li>
+                        <li class="nav-item"><a href="products.html" class="nav-link">محصولات</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">درباره ما</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="جستجو...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="cart-icon">
+                        <a href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                    <div class="user-account">
+                        <a href="login.html">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </div>
+                    <div class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <main class="container">
-        <div class="news-grid">
-            <!-- اخبار اینجا بارگذاری خواهند شد -->
+    <div class="mobile-menu">
+        <div class="close-menu">
+            <i class="fas fa-times"></i>
         </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">خانه</a></li>
+            <li class="mobile-nav-item"><a href="products.html" class="mobile-nav-link">محصولات</a></li>
+            <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">درباره ما</a></li>
+            <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">تماس با ما</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">مراقبت از پوست شما، تخصص ماست</h2>
+                    <p class="hero-description">محصولات با کیفیت و طبیعی برای داشتن پوستی سالم و شاداب</p>
+                    <a href="products.html" class="btn btn-primary">مشاهده محصولات</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <div class="features-wrapper">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="feature-title">محصولات طبیعی</h3>
+                        <p class="feature-description">تمامی محصولات ما از مواد طبیعی و ارگانیک تهیه شده‌اند</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="feature-title">ارسال سریع</h3>
+                        <p class="feature-description">ارسال سریع به سراسر کشور در کمترین زمان ممکن</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">تضمین کیفیت</h3>
+                        <p class="feature-description">تضمین کیفیت تمامی محصولات با گارانتی بازگشت وجه</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="feature-title">پشتیبانی 24/7</h3>
+                        <p class="feature-description">پشتیبانی شبانه روزی برای پاسخگویی به سوالات شما</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="popular-products">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">محصولات پرفروش</h2>
+                    <p class="section-description">محبوب‌ترین محصولات ما که مشتریان عاشق آن‌ها هستند</p>
+                </div>
+                <div class="products-wrapper" id="popular-products-container">
+                    <!-- Products will be loaded dynamically with JavaScript -->
+                </div>
+                <div class="view-all-container">
+                    <a href="products.html" class="btn btn-secondary">مشاهده همه محصولات</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">دسته‌بندی محصولات</h2>
+                    <p class="section-description">محصولات ما را بر اساس نیاز پوستی خود انتخاب کنید</p>
+                </div>
+                <div class="categories-wrapper">
+                    <div class="category-item">
+                        <img src="images/category-1.jpg" alt="پاک کننده" class="category-image">
+                        <div class="category-content">
+                            <h3 class="category-title">پاک کننده‌ها</h3>
+                            <a href="products.html?category=cleansers" class="category-link">مشاهده محصولات</a>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <img src="images/category-2.jpg" alt="مرطوب کننده" class="category-image">
+                        <div class="category-content">
+                            <h3 class="category-title">مرطوب کننده‌ها</h3>
+                            <a href="products.html?category=moisturizers" class="category-link">مشاهده محصولات</a>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <img src="images/category-3.jpg" alt="سرم" class="category-image">
+                        <div class="category-content">
+                            <h3 class="category-title">سرم‌ها</h3>
+                            <a href="products.html?category=serums" class="category-link">مشاهده محصولات</a>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <img src="images/category-4.jpg" alt="ضد آفتاب" class="category-image">
+                        <div class="category-content">
+                            <h3 class="category-title">ضد آفتاب‌ها</h3>
+                            <a href="products.html?category=sunscreens" class="category-link">مشاهده محصولات</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">نظرات مشتریان</h2>
+                    <p class="section-description">آنچه مشتریان ما درباره محصولات ما می‌گویند</p>
+                </div>
+                <div class="testimonials-wrapper">
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">محصولات این فروشگاه واقعا عالی هستند. بعد از استفاده از سرم ویتامین C پوستم کاملا شاداب و روشن شده است.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial-1.jpg" alt="مریم احمدی" class="testimonial-author-image">
+                            <div class="testimonial-author-info">
+                                <h4 class="testimonial-author-name">مریم احمدی</h4>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">کرم مرطوب کننده این فروشگاه بهترین محصولی است که تا به حال استفاده کرده‌ام. پوست خشک من کاملا مرطوب و نرم شده است.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial-2.jpg" alt="علی محمدی" class="testimonial-author-image">
+                            <div class="testimonial-author-info">
+                                <h4 class="testimonial-author-name">علی محمدی</h4>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">ضد آفتاب این فروشگاه فوق‌العاده است. بدون چرب کردن پوست، محافظت عالی در برابر آفتاب ایجاد می‌کند.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial-3.jpg" alt="سارا رضایی" class="testimonial-author-image">
+                            <div class="testimonial-author-info">
+                                <h4 class="testimonial-author-name">سارا رضایی</h4>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-wrapper">
+                    <div class="newsletter-content">
+                        <h3 class="newsletter-title">عضویت در خبرنامه</h3>
+                        <p class="newsletter-description">برای اطلاع از آخرین محصولات و تخفیف‌های ویژه در خبرنامه ما عضو شوید</p>
+                    </div>
+                    <div class="newsletter-form">
+                        <form id="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" id="newsletter-email" placeholder="ایمیل خود را وارد کنید" required>
+                                <button type="submit" class="btn btn-primary">عضویت</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script>
-        // تابع خروج
-        function logout() {
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('userPasswordVersion');
-            window.location.href = 'login.html';
-        }
-    </script>
-    <script src="script.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>پوست زیبا</h2>
+                    </div>
+                    <p class="footer-description">فروشگاه تخصصی محصولات مراقبت پوستی با بهترین کیفیت و قیمت مناسب</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">دسترسی سریع</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">خانه</a></li>
+                        <li><a href="products.html">محصولات</a></li>
+                        <li><a href="about.html">درباره ما</a></li>
+                        <li><a href="contact.html">تماس با ما</a></li>
+                        <li><a href="faq.html">سوالات متداول</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">خدمات مشتریان</h3>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html">اطلاعات ارسال</a></li>
+                        <li><a href="returns.html">شرایط بازگشت کالا</a></li>
+                        <li><a href="privacy.html">حریم خصوصی</a></li>
+                        <li><a href="terms.html">قوانین و مقررات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">تماس با ما</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> تهران، خیابان ولیعصر، پلاک 123</li>
+                        <li><i class="fas fa-phone"></i> 021-12345678</li>
+                        <li><i class="fas fa-envelope"></i> info@poostziba.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© تمامی حقوق برای فروشگاه پوست زیبا محفوظ است. 1402</p>
+                <div class="payment-methods">
+                    <img src="images/payment-methods.png" alt="روش‌های پرداخت">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
 </body>
 </html>
