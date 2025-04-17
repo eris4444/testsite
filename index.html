@@ -3,307 +3,1080 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پوست زیبا | فروشگاه محصولات مراقبت پوستی</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
+    <title>آکادمی ریاضی استاد میثم عین الهی | تخصصی هفتم تا نهم</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --dark: #1b263b;
+            --light: #f8f9fa;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --warning: #f8961e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'IRANSans', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes floatRandom {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -15px) rotate(5deg); }
+            50% { transform: translate(20px, 5px) rotate(0deg); }
+            75% { transform: translate(-10px, 15px) rotate(-5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        /* اسکرول بار */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        /* هدر */
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(27, 38, 59, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent), var(--success));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a i {
+            margin-left: 8px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links li::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li:hover::after {
+            width: 100%;
+        }
+
+        /* هیرو */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(27, 38, 59, 0.8), rgba(27, 38, 59, 0.8)), 
+                        url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-left: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+            animation: pulse 0.5s;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: all 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        /* بخش درباره من - طراحی جدید */
+        .about {
+            padding: 6rem 2rem;
+            background-color: white;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.03);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-text {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .about-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed rgba(67, 97, 238, 0.2);
+        }
+
+        .about-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .about-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        .about-item p {
+            margin: 0;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .about-social {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            justify-content: center;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+
+        .telegram {
+            background: linear-gradient(45deg, #0088cc, #00aced);
+            color: white;
+        }
+
+        .youtube {
+            background: linear-gradient(45deg, #FF0000, #FF3333);
+            color: white;
+        }
+
+        /* بخش ریاضی پویا */
+        .math-animation {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            padding: 6rem 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .math-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .math-content {
+            flex: 1;
+            padding-left: 2rem;
+        }
+
+        .math-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .math-title span {
+            color: var(--accent);
+        }
+
+        .math-desc {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .math-visual {
+            flex: 1;
+            position: relative;
+        }
+
+        .formula-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+            max-width: 500px;
+            margin: 0 auto;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .formula {
+            font-size: 2rem;
+            text-align: center;
+            margin: 1rem 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .formula-legend {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1.5rem;
+        }
+
+        .legend-item {
+            text-align: center;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* بخش آمار */
+        .stats {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(72, 149, 239, 0.1));
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .stat-text {
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        /* نمادهای ریاضی متحرک */
+        .math-symbols {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .symbol {
+            font-size: 2rem;
+            color: var(--accent);
+            animation: floatRandom 6s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        /* اعداد متحرک در پس‌زمینه */
+        .floating-numbers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .floating-number {
+            position: absolute;
+            color: rgba(255,255,255,0.1);
+            font-size: 1.5rem;
+            font-weight: bold;
+            animation: floatRandom 15s linear infinite;
+            user-select: none;
+        }
+
+        /* فوتر */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-left: 8px;
+            color: var(--accent);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-contact i {
+            margin-left: 10px;
+            color: var(--accent);
+            width: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* منوی موبایل */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: var(--dark);
+            z-index: 2000;
+            transition: all 0.3s ease;
+            padding: 2rem;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            margin-top: 3rem;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu-links a i {
+            margin-left: 10px;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 992px) {
+            .hero-content, .math-container, .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text, .math-content, .about-content {
+                padding-left: 0;
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+
+            .hero-buttons, .about-social, .math-symbols {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .about-image {
+                margin-bottom: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header-wrapper">
-                <div class="logo">
-                    <a href="index.html">
-                        <h1>پوست زیبا</h1>
-                    </a>
-                </div>
-                <nav class="main-nav">
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="index.html" class="nav-link active">خانه</a></li>
-                        <li class="nav-item"><a href="products.html" class="nav-link">محصولات</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">درباره ما</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <div class="search-box">
-                        <input type="text" placeholder="جستجو...">
-                        <button type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                    <div class="cart-icon">
-                        <a href="cart.html">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </div>
-                    <div class="user-account">
-                        <a href="login.html">
-                            <i class="fas fa-user"></i>
-                        </a>
-                    </div>
-                    <div class="mobile-menu-toggle">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                </div>
+    <!-- هدر -->
+    <header id="header">
+        <div class="navbar">
+            <div class="logo">
+                <img src="https://i.postimg.cc/bGdh3MyF/1000015713.png" alt="آکادمی ریاضی">
+                <span class="logo-text">آکادمی ریاضی</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i>خانه</a></li>
+                <li><a href="#about"><i class="fas fa-user-tie"></i>درباره من</a></li>
+                <li><a href="#math"><i class="fas fa-square-root-alt"></i>آموزش ریاضی</a></li>
+                <li><a href="#stats"><i class="fas fa-chart-line"></i>آمارها</a></li>
+                <li><a href="#contact"><i class="fas fa-phone"></i>تماس</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <div class="mobile-menu">
-        <div class="close-menu">
+    <!-- منوی موبایل -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="close-btn">
             <i class="fas fa-times"></i>
         </div>
-        <ul class="mobile-nav-list">
-            <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">خانه</a></li>
-            <li class="mobile-nav-item"><a href="products.html" class="mobile-nav-link">محصولات</a></li>
-            <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">درباره ما</a></li>
-            <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">تماس با ما</a></li>
+        <ul class="mobile-menu-links">
+            <li><a href="#home"><i class="fas fa-home"></i>خانه</a></li>
+            <li><a href="#about"><i class="fas fa-user-tie"></i>درباره من</a></li>
+            <li><a href="#math"><i class="fas fa-square-root-alt"></i>آموزش ریاضی</a></li>
+            <li><a href="#stats"><i class="fas fa-chart-line"></i>آمارها</a></li>
+            <li><a href="#contact"><i class="fas fa-phone"></i>تماس</a></li>
         </ul>
     </div>
 
-    <main>
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h2 class="hero-title">مراقبت از پوست شما، تخصص ماست</h2>
-                    <p class="hero-description">محصولات با کیفیت و طبیعی برای داشتن پوستی سالم و شاداب</p>
-                    <a href="products.html" class="btn btn-primary">مشاهده محصولات</a>
+    <!-- بخش هیرو -->
+    <section class="hero" id="home">
+        <div class="floating-numbers" id="floatingNumbers"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">تبدیل ریاضی به <span>زبان ساده</span></h1>
+                <p class="hero-subtitle">آموزش مفهومی ریاضیات هفتم تا نهم با روش‌های نوین و تعاملی</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">
+                        <i class="fas fa-user-tie"></i> درباره استاد
+                    </a>
+                    <a href="https://www.instagram.com/bamriazi?igsh=MXF2YmE3MWJqZXluNg==" class="btn btn-secondary">
+                        <i class="fas fa-phone-alt"></i> مشاوره رایگان
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <section class="features-section">
-            <div class="container">
-                <div class="features-wrapper">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3 class="feature-title">محصولات طبیعی</h3>
-                        <p class="feature-description">تمامی محصولات ما از مواد طبیعی و ارگانیک تهیه شده‌اند</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-truck"></i>
-                        </div>
-                        <h3 class="feature-title">ارسال سریع</h3>
-                        <p class="feature-description">ارسال سریع به سراسر کشور در کمترین زمان ممکن</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 class="feature-title">تضمین کیفیت</h3>
-                        <p class="feature-description">تضمین کیفیت تمامی محصولات با گارانتی بازگشت وجه</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3 class="feature-title">پشتیبانی 24/7</h3>
-                        <p class="feature-description">پشتیبانی شبانه روزی برای پاسخگویی به سوالات شما</p>
-                    </div>
-                </div>
+            <div class="hero-image">
+                <img src="" alt="آموزش ریاضی">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="popular-products">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">محصولات پرفروش</h2>
-                    <p class="section-description">محبوب‌ترین محصولات ما که مشتریان عاشق آن‌ها هستند</p>
-                </div>
-                <div class="products-wrapper" id="popular-products-container">
-                    <!-- Products will be loaded dynamically with JavaScript -->
-                </div>
-                <div class="view-all-container">
-                    <a href="products.html" class="btn btn-secondary">مشاهده همه محصولات</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="categories-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">دسته‌بندی محصولات</h2>
-                    <p class="section-description">محصولات ما را بر اساس نیاز پوستی خود انتخاب کنید</p>
-                </div>
-                <div class="categories-wrapper">
-                    <div class="category-item">
-                        <img src="images/category-1.jpg" alt="پاک کننده" class="category-image">
-                        <div class="category-content">
-                            <h3 class="category-title">پاک کننده‌ها</h3>
-                            <a href="products.html?category=cleansers" class="category-link">مشاهده محصولات</a>
-                        </div>
-                    </div>
-                    <div class="category-item">
-                        <img src="images/category-2.jpg" alt="مرطوب کننده" class="category-image">
-                        <div class="category-content">
-                            <h3 class="category-title">مرطوب کننده‌ها</h3>
-                            <a href="products.html?category=moisturizers" class="category-link">مشاهده محصولات</a>
-                        </div>
-                    </div>
-                    <div class="category-item">
-                        <img src="images/category-3.jpg" alt="سرم" class="category-image">
-                        <div class="category-content">
-                            <h3 class="category-title">سرم‌ها</h3>
-                            <a href="products.html?category=serums" class="category-link">مشاهده محصولات</a>
-                        </div>
-                    </div>
-                    <div class="category-item">
-                        <img src="images/category-4.jpg" alt="ضد آفتاب" class="category-image">
-                        <div class="category-content">
-                            <h3 class="category-title">ضد آفتاب‌ها</h3>
-                            <a href="products.html?category=sunscreens" class="category-link">مشاهده محصولات</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonials-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">نظرات مشتریان</h2>
-                    <p class="section-description">آنچه مشتریان ما درباره محصولات ما می‌گویند</p>
-                </div>
-                <div class="testimonials-wrapper">
-                    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">محصولات این فروشگاه واقعا عالی هستند. بعد از استفاده از سرم ویتامین C پوستم کاملا شاداب و روشن شده است.</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/testimonial-1.jpg" alt="مریم احمدی" class="testimonial-author-image">
-                            <div class="testimonial-author-info">
-                                <h4 class="testimonial-author-name">مریم احمدی</h4>
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">کرم مرطوب کننده این فروشگاه بهترین محصولی است که تا به حال استفاده کرده‌ام. پوست خشک من کاملا مرطوب و نرم شده است.</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/testimonial-2.jpg" alt="علی محمدی" class="testimonial-author-image">
-                            <div class="testimonial-author-info">
-                                <h4 class="testimonial-author-name">علی محمدی</h4>
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">ضد آفتاب این فروشگاه فوق‌العاده است. بدون چرب کردن پوست، محافظت عالی در برابر آفتاب ایجاد می‌کند.</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/testimonial-3.jpg" alt="سارا رضایی" class="testimonial-author-image">
-                            <div class="testimonial-author-info">
-                                <h4 class="testimonial-author-name">سارا رضایی</h4>
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="newsletter-section">
-            <div class="container">
-                <div class="newsletter-wrapper">
-                    <div class="newsletter-content">
-                        <h3 class="newsletter-title">عضویت در خبرنامه</h3>
-                        <p class="newsletter-description">برای اطلاع از آخرین محصولات و تخفیف‌های ویژه در خبرنامه ما عضو شوید</p>
-                    </div>
-                    <div class="newsletter-form">
-                        <form id="newsletter-form">
-                            <div class="form-group">
-                                <input type="email" id="newsletter-email" placeholder="ایمیل خود را وارد کنید" required>
-                                <button type="submit" class="btn btn-primary">عضویت</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
+    <!-- بخش درباره من -->
+    <section class="about" id="about">
         <div class="container">
-            <div class="footer-top">
-                <div class="footer-column">
-                    <div class="footer-logo">
-                        <h2>پوست زیبا</h2>
+            <h2 class="section-title">درباره استاد میثم عین الهی</h2>
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="" alt="استاد میثم عین الهی" class="profile-image">
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="about-item">
+                            <i class="fas fa-user-graduate about-icon"></i>
+                            <p>دوست عزیزم سلام، میثم عین الهی هستم، متخصص و مدرس ریاضی هفتم، هشتم و نهم</p>
+                        </div>
+                        <div class="about-item">
+                            <i class="fas fa-book-open about-icon"></i>
+                            <p>در این سایت با آموزش‌های جذاب من همراه باشید و ریاضی را به ساده‌ترین شکل ممکن یاد بگیرید</p>
+                        </div>
+                        <div class="about-item">
+                            <i class="fas fa-video about-icon"></i>
+                            <p>برای مشاهده فیلم‌های کامل تدریس، به کانال آپاراتم مراجعه کنید</p>
+                        </div>
+                        <div class="about-item">
+                            <i class="fas fa-graduation-cap about-icon"></i>
+                            <p>آموزش ساده را اینجا تجربه کنید</p>
+                        </div>
+                        <div class="about-item">
+                            <i class="fas fa-award about-icon"></i>
+                            <p>دبیر رسمی آموزش و پرورش با ۱۰ سال تجربه تدریس و آموزش</p>
+                        </div>
                     </div>
-                    <p class="footer-description">فروشگاه تخصصی محصولات مراقبت پوستی با بهترین کیفیت و قیمت مناسب</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <div class="about-social">
+                        <a href="https://www.instagram.com/bamriazi?igsh=MXF2YmE3MWJqZXluNg==" class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://www.aparat.com/M.einollahi" class="social-icon youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
-                </div>
-                <div class="footer-column">
-                    <h3 class="footer-title">دسترسی سریع</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">خانه</a></li>
-                        <li><a href="products.html">محصولات</a></li>
-                        <li><a href="about.html">درباره ما</a></li>
-                        <li><a href="contact.html">تماس با ما</a></li>
-                        <li><a href="faq.html">سوالات متداول</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3 class="footer-title">خدمات مشتریان</h3>
-                    <ul class="footer-links">
-                        <li><a href="shipping.html">اطلاعات ارسال</a></li>
-                        <li><a href="returns.html">شرایط بازگشت کالا</a></li>
-                        <li><a href="privacy.html">حریم خصوصی</a></li>
-                        <li><a href="terms.html">قوانین و مقررات</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3 class="footer-title">تماس با ما</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> تهران، خیابان ولیعصر، پلاک 123</li>
-                        <li><i class="fas fa-phone"></i> 021-12345678</li>
-                        <li><i class="fas fa-envelope"></i> info@poostziba.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="copyright">© تمامی حقوق برای فروشگاه پوست زیبا محفوظ است. 1402</p>
-                <div class="payment-methods">
-                    <img src="images/payment-methods.png" alt="روش‌های پرداخت">
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- بخش ریاضی پویا -->
+    <section class="math-animation" id="math">
+        <div class="math-container">
+            <div class="math-content">
+                <h2 class="math-title">ریاضیات <span>زنده</span> و پویا</h2>
+                <p class="math-desc">
+                    در آکادمی ریاضی ما، مفاهیم پیچیده به ساده‌ترین شکل ممکن آموزش داده می‌شوند. با روش‌های تعاملی و جذاب، ریاضی را به تجربه‌ای لذت‌بخش تبدیل کنید.
+                </p>
+                <div class="math-symbols">
+                    <div class="symbol">∫</div>
+                    <div class="symbol">∑</div>
+                    <div class="symbol">π</div>
+                    <div class="symbol">√</div>
+                    <div class="symbol">∞</div>
+                    <div class="symbol">θ</div>
+                    <div class="symbol">Δ</div>
+                    <div class="symbol">≈</div>
+                </div>
+            </div>
+            <div class="math-visual">
+                <div class="formula-box">
+                    <div class="formula">
+                        (a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup>
+                    </div>
+                    <p>فرمول مربع دو جمله‌ای</p>
+                    <div class="formula-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #f72585;"></span>
+                            <small>a<sup>2</sup></small>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #4895ef;"></span>
+                            <small>2ab</small>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #4cc9f0;"></span>
+                            <small>b<sup>2</sup></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش آمار -->
+    <section class="stats" id="stats">
+        <div class="stats-container">
+            <h2 class="section-title">آمارهای آکادمی</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="10">0</div>
+                    <div class="stat-text">سال تجربه تدریس</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-text">دانش‌آموز موفق</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-text">درس‌نامه آموزشی</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="99">0</div>
+                    <div class="stat-text">رضایت‌مندی</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-col footer-about">
+                <h3>آکادمی ریاضی میثم عین الهی</h3>
+                <p>
+                    تخصصی‌ترین مرجع آموزش ریاضی هفتم تا نهم با روش‌های نوین تدریس و یادگیری تعاملی
+                </p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/bamriazi?igsh=MXF2YmE3MWJqZXluNg=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.aparat.com/M.einollahi"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col footer-links">
+                <h3>لینک‌های مفید</h3>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-left"></i> صفحه اصلی</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-left"></i> درباره استاد</a></li>
+                    <li><a href="#math"><i class="fas fa-chevron-left"></i> آموزش ریاضی</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h3>ارتباط با من</h3>
+                <p><i class="fas fa-phone"></i> ۰۹۱۲XXX۱۲۳۴</p>
+                <p><i class="fas fa-envelope"></i> meysam.math@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© تمام حقوق برای آکادمی ریاضی استاد میثم عین الهی محفوظ است - ۱۴۰۲</p>
+        </div>
     </footer>
 
-    <div class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <script>
+        // اسکرول هدر
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
-    <script src="js/main.js"></script>
-    <script src="js/products.js"></script>
+        // منوی موبایل
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeBtn = document.querySelector('.close-btn');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeBtn.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // بستن منو با کلیک روی لینک‌ها
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // اسموث اسکرول
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // انیمیشن نمادهای ریاضی
+        const symbols = document.querySelectorAll('.symbol');
+        symbols.forEach(symbol => {
+            const duration = 3 + Math.random() * 4;
+            const delay = Math.random() * 5;
+            symbol.style.animation = `floatRandom ${duration}s ease-in-out ${delay}s infinite`;
+        });
+
+        // شمارنده آمارها
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // فعال کردن شمارنده هنگام اسکرول
+        let statsSection = document.querySelector('.stats');
+        let isAnimated = false;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > statsSection.offsetTop - window.innerHeight / 2 && !isAnimated) {
+                animateCounters();
+                isAnimated = true;
+            }
+        });
+
+        // اعداد متحرک در پس‌زمینه
+        function createFloatingNumbers() {
+            const container = document.getElementById('floatingNumbers');
+            const symbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '×', '÷', '=', 'π', '√', '∞'];
+            
+            for (let i = 0; i < 30; i++) {
+                const number = document.createElement('div');
+                number.className = 'floating-number';
+                number.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                
+                // موقعیت تصادفی
+                number.style.left = `${Math.random() * 100}%`;
+                number.style.top = `${Math.random() * 100}%`;
+                
+                // اندازه تصادفی
+                const size = 0.5 + Math.random() * 2;
+                number.style.fontSize = `${size}rem`;
+                
+                // تاخیر و مدت زمان انیمیشن
+                const delay = Math.random() * 15;
+                const duration = 10 + Math.random() * 20;
+                number.style.animation = `floatRandom ${duration}s linear ${delay}s infinite`;
+                
+                container.appendChild(number);
+            }
+        }
+
+        // ایجاد اعداد متحرک هنگام لود صفحه
+        window.addEventListener('load', createFloatingNumbers);
+    </script>
 </body>
-</html>
+</html>  
